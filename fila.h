@@ -14,45 +14,44 @@ template<class T>
 class fila {
 
 public:
-    deque<T> numeros;
+    deque<T> t;
 
-    void adicionaNumeroNoFimDaFila(T numero) {
-        numeros.push_back(numero);
+    void adicionaNumeroNoFimDaFila(T t) {
+        this->t.push_back(t);
     }
 
     int removeNumeroDoTopo() {
-        T numero = numeros.front();
-        numeros.pop_front();
-        return numero;
+        T t = this->t.front();
+        this->t.pop_front();
+        return t;
     }
 
     int retornaObjDoTopo() {
-        return numeros.front();
+        return t.front();
     }
 
     bool estaVazia() {
-        return numeros.empty();
+        return t.empty();
     }
 
     void listaFila() {
 
-        if (numeros.empty()) {
+        if (t.empty()) {
             cout << "A sua fila nao contem nenhuma numero" << endl;
             return;
         }
 
         cout << endl << "---------------" << endl;
-        for (typename deque<T>::iterator it = numeros.begin(); it != numeros.end(); ++it) {
+        for (typename deque<T>::iterator it = t.begin(); it != t.end(); ++it) {
             cout << " " << *it;
         }
         cout << endl << "---------------" << endl;
     }
 
     int tamanhoDaFila() {
-        return numeros.size();
+        return t.size();
     }
 
 };
-
 
 #endif //FILA_GENERICA_FILA_H
